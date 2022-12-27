@@ -67,7 +67,7 @@ public class DummyControllerTest {
 		return user;
 	}
 	
-	// http://localhost:8000/blog/dummy/user
+	// http://localhost:8080/blog/dummy/user
 	@GetMapping("/dummy/users")
 	public List<User> list(){
 		return userRepository.findAll();
@@ -83,7 +83,7 @@ public class DummyControllerTest {
 	}
 	
 	// {id} 주소로 파마레터를 전달 받을 수 있음.
-	// http://localhost:8000/blog/dummy/user/5
+	// http://localhost:8080/blog/dummy/user/5
 	@GetMapping("/dummy/user/{id}")
 	public User detail(@PathVariable int id) {
 		// user/4을 찾으면 내가 데이터베이스에서 못찾아오게 되면 user가 null이 될 것 아냐?
@@ -110,7 +110,7 @@ public class DummyControllerTest {
 		return user;
 	}
 
-	// http://localhost:8000/blog/dummy/join (요청)
+	// http://localhost:8080/blog/dummy/join (요청)
 	// http의 body에 username, password, email 데이터를 가지고 (요청)
 	@PostMapping("/dummy/join")
 	public String join(User user) { // key=value (약속된 규칙)

@@ -1,36 +1,33 @@
 package com.cos.blog.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 public class KakaoProfile {
-	public Integer id;
-	public String connected_at;
-	public Properties properties;
+
+	public Long id;
 	public KakaoAccount kakao_account;
 
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	@Data
-	public class Properties {
-		public String nickname;
-		public String profile_image;
-		public String thumbnail_image;
+	public static class KakaoAccount {
+
+		public String email;
 	}
 
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	@Data
-	public class KakaoAccount {
-		public Boolean profile_needs_agreement;
-		public Profile profile;
-		public Boolean has_email;
-		public Boolean email_needs_agreement;
-		public Boolean is_email_valid;
-		public Boolean is_email_verified;
-		public String email;
+	public static class Profile {
 
-		@Data
-		public class Profile {
-			public String nickname;
-			public String thumbnail_image_url;
-			public String profile_image_url;
-		}
+		public String thumnail_img_url;
+
+	}
+
+	@JsonIgnoreProperties(ignoreUnknown = true)
+	@Data
+	public static class Properties {
+
 	}
 }
